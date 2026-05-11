@@ -1,0 +1,8 @@
+fastapi[standard]
+uvicorn[standard]
+sqlalchemy
+pydantic
+passlib
+pyjwt
+bcrypt==4.3.0
+dotenv

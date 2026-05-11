@@ -1,10 +1,6 @@
 from datetime import date
-
 from sqlalchemy import ForeignKey, String, Integer, Boolean ,DATE
-
 from sqlalchemy.orm import DeclarativeBase, Mapped, relationship , mapped_column
-
-
 from typing import List, Optional
 
 
@@ -17,6 +13,8 @@ class User(Base):
     id: Mapped[int] = mapped_column(Integer ,primary_key=True)
     name: Mapped[str] = mapped_column(String(50))
     phone_number: Mapped[str] = mapped_column(String(50))
+    email:Mapped[str] = mapped_column(String(50))
+    password:Mapped[str] = mapped_column(String(100))
     posts: Mapped[List["Post"]] = relationship(
         "Post",back_populates="user", cascade="all, delete-orphan"
     )
