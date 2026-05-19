@@ -1,8 +1,0 @@
-<<<<<<< HEAD
-{
-    "python-envs.defaultEnvManager": "ms-python.python:venv"
-=======
-{
-    "python-envs.defaultEnvManager": "ms-python.python:venv"
->>>>>>> 8b9766d (remove sensitive files)
-}
