@@ -1,7 +1,16 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Black">
     <option name="sdkName" value="Python 3.14 (fastapi_blog)" />
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.14 (python-demo)" project-jdk-type="Python SDK" />
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Black">
+    <option name="sdkName" value="Python 3.14 (fastapi_blog)" />
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.14 (python-demo)" project-jdk-type="Python SDK" />
+>>>>>>> 8b9766d (remove sensitive files)
 </project>

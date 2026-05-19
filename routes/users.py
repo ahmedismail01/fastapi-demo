@@ -2,8 +2,12 @@
 from sqlalchemy.orm import Session
 from db import get_db
 from models import User
+<<<<<<< HEAD
 from schemas import UserDto, UserRead
 from core.security import hash_password
+=======
+from schemas import UserRead
+>>>>>>> 8b9766d (remove sensitive files)
 
 router = APIRouter(prefix="/users", tags=["users"])
 
