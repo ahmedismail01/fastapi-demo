@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastAPI Blog</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/app.js" defer></script>
+</head>
+<body>
+    <header class="topbar">
+        <div>
+            <p class="eyebrow">FastAPI Blog</p>
+            <h1>Posts, followers, and live updates</h1>
+        </div>
+        <div class="session">
+            <span id="sessionLabel">Signed out</span>
+            <button id="logoutBtn" class="ghost" type="button" disabled>Logout</button>
+        </div>
+    </header>
+
+    <main class="layout">
+        <aside class="sidebar">
+            <section id="authPanel" class="panel">
+                <div class="tabs">
+                    <button class="tab active" data-auth-tab="login" type="button">Login</button>
+                    <button class="tab" data-auth-tab="register" type="button">Register</button>
+                </div>
+
+                <form id="loginForm" class="stack">
+                    <label>
+                        Email
+                        <input id="loginEmail" autocomplete="email" type="email" required>
+                    </label>
+                    <label>
+                        Password
+                        <input id="loginPassword" autocomplete="current-password" type="password" required>
+                    </label>
+                    <button type="submit">Login</button>
+                </form>
+
+                <form id="registerForm" class="stack hidden">
+                    <label>
+                        Name
+                        <input id="registerName" autocomplete="name" type="text" required>
+                    </label>
+                    <label>
+                        Email
+                        <input id="registerEmail" autocomplete="email" type="email" required>
+                    </label>
+                    <label>
+                        Phone
+                        <input id="registerPhone" autocomplete="tel" type="tel" required>
+                    </label>
+                    <label>
+                        Password
+                        <input id="registerPassword" autocomplete="new-password" type="password" required>
+                    </label>
+                    <button type="submit">Create Account</button>
+                </form>
+            </section>
+
+            <section class="panel">
+                <div class="section-head">
+                    <div>
+                        <p class="eyebrow">Network</p>
+                        <h2>People</h2>
+                    </div>
+                    <button id="refreshUsersBtn" class="ghost compact" title="Refresh users" type="button">Refresh</button>
+                </div>
+                <div id="usersList" class="list empty">Login to browse writers.</div>
+            </section>
+        </aside>
+
+        <section class="content">
+            <section class="composer panel">
+                <div class="section-head">
+                    <div>
+                        <p class="eyebrow">Publish</p>
+                        <h2>Create a post</h2>
+                    </div>
+                    <span id="socketState" class="status muted">Offline</span>
+                </div>
+                <form id="postForm" class="stack">
+                    <input id="postTitle" maxlength="50" placeholder="Post title" type="text" required>
+                    <textarea id="postContent" maxlength="500" placeholder="Write your update"></textarea>
+                    <button type="submit">Publish Post</button>
+                </form>
+            </section>
+
+            <section class="panel">
+                <div class="section-head">
+                    <div>
+                        <p class="eyebrow">Posts</p>
+                        <h2>Blog timeline</h2>
+                    </div>
+                    <div class="actions">
+                        <button class="tab active" data-post-tab="feed" type="button">Feed</button>
+                        <button class="tab" data-post-tab="mine" type="button">My Posts</button>
+                        <button id="refreshPostsBtn" class="ghost compact" title="Refresh posts" type="button">Refresh</button>
+                    </div>
+                </div>
+                <div id="postsList" class="post-list empty">Login to load posts.</div>
+            </section>
+        </section>
+
+        <aside class="sidebar">
+            <section class="panel">
+                <div class="section-head">
+                    <div>
+                        <p class="eyebrow">Following API</p>
+                        <h2>Following</h2>
+                    </div>
+                    <span id="followingCount" class="pill">0</span>
+                </div>
+                <div id="followingList" class="list empty">No followed writers yet.</div>
+            </section>
+
+            <section class="panel">
+                <div class="section-head">
+                    <div>
+                        <p class="eyebrow">Followers API</p>
+                        <h2>Followers</h2>
+                    </div>
+                    <span id="followersCount" class="pill">0</span>
+                </div>
+                <div id="followersList" class="list empty">No followers yet.</div>
+            </section>
+
+            <section class="panel">
+                <div class="section-head">
+                    <div>
+                        <p class="eyebrow">WebSocket</p>
+                        <h2>Live notices</h2>
+                    </div>
+                    <button id="clearNoticesBtn" class="ghost compact" title="Clear notices" type="button">Clear</button>
+                </div>
+                <div id="noticesList" class="list empty">No live notices.</div>
+            </section>
+        </aside>
+    </main>
+
+    <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+</body>
+</html>
